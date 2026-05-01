@@ -1,0 +1,28 @@
+@use 'variables' as *; 
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    max-height: $height-navbar;
+    height: $height-footer;
+    gap: 2rem;
+    font-size: $font-size-nav;
+    padding: 1rem 2rem;
+    align-items: center;
+    justify-content: center;
+
+    .text {
+        font-size: $font-size-nav;
+        color: black;
+        font-weight: 600;
+
+        &:hover { 
+            color: $color-dark-green;
+        }
+
+        &.active {
+            color: $color-dark-green;
+            font-size: 1.05rem;
+        }
+    }
+}
