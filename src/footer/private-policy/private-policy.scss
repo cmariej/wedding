@@ -1,0 +1,27 @@
+@use 'variables' as *; 
+
+.heading-container {
+    margin-bottom: 6rem;
+}
+
+.subtitle {
+    margin-top: 12rem;
+}
+
+.private-policy {
+    padding: 2rem 10rem 5rem 10rem;
+
+    * {
+        text-transform: none;
+        text-align: start;
+    }
+
+    .legal-title {
+        font-size: 2rem;
+        color: $color-dark-green;
+    }
+
+    .legal-section {
+        margin-bottom: 3.5rem;
+    }
+}

@@ -1,10 +1,16 @@
 @use 'variables' as *; 
-@import url('https://fonts.google.com/specimen/Cormorant+Garamond');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+
 
 * {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
+  font-size: $font-size-text;
   letter-spacing: 0.1em;
+  font-weight: 300;
+  text-transform: uppercase;
+  text-align: center;
 }
 
 a, a:-webkit-any-link {
@@ -24,21 +30,64 @@ a, a:-webkit-any-link {
     min-height: calc(100vh - $height-navbar - 2* $height-footer);
     background: white;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .heading-container {
+      height:fit-content;
+      position: relative;
+      margin-bottom: 6rem;
+    }
 
     .heading-img {
       display: flex;
       justify-content: space-between;
       flex-direction: row;
       width: 100%;
+      max-height: fit-content;
+      align-items: flex-start;
     
       img{
-        width: 35%;
-        height: fit-content;
+        width: 33%;
+        height: auto;
+        object-fit: cover;
       }
+    }
+
+    .overlay-title {
+        position: absolute;
+        top: 0;
+        //transform: translate(-50%, -50%); // ← zentrieren
+        color: black;
+        font-size: 3rem;
+        text-align: left;
+        z-index: 10;
+        margin-top: 5rem;
+        margin-bottom: 0;
+        width: 100%;
+        
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
     }
 }
 
-.text {
-  text-transform: uppercase;
+.title {
+    margin-bottom: 0;
+    font-size: $font-size-title;
+    font-family: 'Corinthia', cursive;
+    letter-spacing: -0.015rem;
+    text-transform: none;
 }
+
+.subtitle {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: $font-size-subtitle;
+    text-transform: uppercase;
+    margin-top: -1.5rem;
+}
+
+
 

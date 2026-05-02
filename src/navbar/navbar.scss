@@ -22,7 +22,7 @@
 
         &.active {
             color: $color-dark-green;
-            font-size: 1.05rem;
+            font-size: $font-size-nav-active;
         }
     }
 }

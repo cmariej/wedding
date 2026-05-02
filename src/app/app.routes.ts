@@ -5,6 +5,7 @@ import { Agenda } from './agenda/agenda';
 import { Details } from './details/details';
 import { Location } from './location/location';
 import { Rsvp } from './rsvp/rsvp';
+import { PrivatePolicy } from '../footer/private-policy/private-policy';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'general', pathMatch: 'full' }, // ← das hier
@@ -14,4 +15,5 @@ export const routes: Routes = [
     { path: 'agenda', component: Agenda },
     { path: 'details', component: Details },
     { path: 'rsvp', component: Rsvp },
+    { path: 'private-policy', component: PrivatePolicy },
 ];
