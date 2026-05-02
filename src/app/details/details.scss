@@ -1,4 +1,57 @@
+@use 'variables' as *;
+
 .title {
     margin-left: -25%;
     font-size: 4rem;
+}
+
+.detail-item {
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  align-items: stretch;
+  gap: 0 2rem;
+  width: 100%;
+  max-width: 500px;
+  margin-top: 2rem;
+
+  h1 {
+    text-align: right;
+  }
+
+  p {
+    text-transform: none;
+    text-align: right;
+  }
+}
+
+.detail-spacer {
+  display: none;
+}
+
+.detail-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+
+  .detail-connector-top {
+    width: 1px;
+    height: 1.4rem; // ← Abstand von oben bis zum Dot (auf h1-Höhe abstimmen)
+    background: $color-medium-green;
+    opacity: 0.5;
+  }
+
+  .detail-dot {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  .detail-connector-bottom {
+    width: 1px;
+    flex: 1;
+    background: $color-medium-green;
+    opacity: 0.5;
+  }
 }

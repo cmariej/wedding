@@ -10,6 +10,29 @@
             <p class="subtitle">Agenda</p>
         </div>
     </div>
-    <p>TBA</p>
+    <div class="agenda-wrapper">
+        <div class="agenda">
+            @for (item of items; track item.time; let first = $first; let last = $last) {
+                <div class="agenda-item">
+
+                <div class="agenda-icon">
+                    <img [src]="item.icon" [alt]="item.title" />
+                </div>
+
+                <div class="agenda-line">
+                    <div class="agenda-dot-top" [class.invisible]="first"></div>
+                    <img class="agenda-dot-img" src="/assets/img/dot.png" alt="dot" />
+                    <div class="agenda-dot-bottom" [class.invisible]="last"></div>
+                </div>
+
+                <div class="agenda-content">
+                    <p class="agenda-time">{{ item.time }}</p>
+                    <p class="agenda-title">{{ item.title }}</p>
+                </div>
+
+                </div>
+            }
+        </div>
+    </div>
 </div>
 

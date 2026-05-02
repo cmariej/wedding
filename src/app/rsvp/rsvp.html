@@ -10,5 +10,105 @@
             <p class="subtitle">Antwortkarte</p>
         </div>
     </div>
-    <p>TBA</p>
+    <img src="/assets/img/rsvp.png" style="width: 50%; height: auto;">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="rsvp-form">
+
+        <!-- Bist du dabei? -->
+        <div class="form-card" [class.invalid]="isInvalid('attending')">
+            <label class="form-label">Bist du dabei? <span class="required">*</span></label>
+            <div class="attend-options">
+            <button type="button" class="attend-btn"
+                [class.selected]="form.get('attending')?.value === 'yes'"
+                (click)="form.get('attending')?.setValue('yes')">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" 
+                        fill="#a8bfa0"/>
+                </svg>
+                <span>Natürlich</span>
+            </button>
+            <button type="button" class="attend-btn no-attend-btn"
+                [class.selected]="form.get('attending')?.value === 'no'"
+                (click)="form.get('attending')?.setValue('no')">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6l12 12" stroke="#FA5830" stroke-width="1.5" 
+                        stroke-linecap="round"/>
+                </svg>
+                <span>Leider nicht</span>
+            </button>
+            </div>
+            @if (isInvalid('attending')) {
+            <p class="error-msg">Bitte wähle eine Option</p>
+            }
+        </div>
+
+        <!-- Name -->
+        <div class="form-card" [class.invalid]="isInvalid('name')">
+            <label class="form-label" for="name">Dein Name <span class="required">*</span></label>
+            <input id="name" type="text" formControlName="name"
+                placeholder="Geben Sie Ihren Namen ein" class="form-input" />
+            @if (isInvalid('name')) {
+            <p class="error-msg">Dein Name wird benötigt</p>
+            }
+        </div>
+
+        <!-- Gäste -->
+        @if (form.get('attending')?.value === 'yes') {
+
+        <div class="form-card" [class.invalid]="isInvalid('guests')">
+        <label class="form-label">Wie viele Gäste bringst du mit? <span class="required">*</span></label>
+        <div class="radio-group">
+            <label class="radio-label">
+            <input type="radio" formControlName="guests" value="solo" /> Nur ich
+            </label>
+            <label class="radio-label">
+            <input type="radio" formControlName="guests" value="1" /> Ich + 1 Gast
+            </label>
+            <label class="radio-label">
+            <input type="radio" formControlName="guests" value="2" /> Ich + 2 Gäste
+            </label>
+        </div>
+        @if (isInvalid('guests')) {
+            <p class="error-msg">Bitte wähle eine Option</p>
+        }
+        </div>
+
+        <div class="form-card">
+        <label class="form-label" for="food">Hast du oder deine Begleitung(en) Essenspräferenzen (z.B. vegan, glutenfrei, etc.)?</label>
+        <textarea id="food" formControlName="food"
+                    placeholder="Deine Antwort" class="form-textarea" rows="3"></textarea>
+        </div>
+
+        <div class="form-card" [class.invalid]="isInvalid('dog')">
+        <label class="form-label">Bringst du einen Hund mit? <span class="required">*</span></label>
+        <div class="radio-group">
+            <label class="radio-label">
+            <input type="radio" formControlName="dog" value="yes" /> Ja
+            </label>
+            <label class="radio-label">
+            <input type="radio" formControlName="dog" value="no" /> Nein
+            </label>
+        </div>
+        @if (isInvalid('dog')) {
+            <p class="error-msg">Bitte wähle eine Option</p>
+        }
+        </div>
+
+        <div class="form-card">
+        <label class="form-label" for="message">Möchtest du uns noch etwas mitteilen?</label>
+        <textarea id="message" formControlName="message"
+                    placeholder="Deine Antwort" class="form-textarea" rows="3"></textarea>
+        </div>
+
+    }
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+            {{ isSubmitting ? 'Wird gesendet...' : 'Abschicken' }}
+        </button>
+
+        @if (submitSuccess) {
+            <p style="font-size: 0.8rem; margin-top: 0;">Deine Antwort wurde erfolgreich gesendet!</p>
+        }
+
+        </form>
 </div>

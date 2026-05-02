@@ -1,6 +1,7 @@
 @use 'variables' as *; 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400&display=swap" rel="stylesheet');
 
 
 
@@ -31,12 +32,14 @@ a, a:-webkit-any-link {
     background: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
+    padding-bottom: 3rem;
+}
 
-    .heading-container {
+.heading-container {
       height:fit-content;
       position: relative;
-      margin-bottom: 6rem;
+      margin-bottom: 1rem;
     }
 
     .heading-img {
@@ -52,25 +55,15 @@ a, a:-webkit-any-link {
         height: auto;
         object-fit: cover;
       }
-    }
+    } 
 
-    .overlay-title {
-        position: absolute;
-        top: 0;
-        //transform: translate(-50%, -50%); // ← zentrieren
-        color: black;
-        font-size: 3rem;
-        text-align: left;
-        z-index: 10;
-        margin-top: 5rem;
-        margin-bottom: 0;
-        width: 100%;
-        
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
-    }
+.overlay-title {
+    position: flex;
+    color: black;
+    font-size: 3rem;
+    text-align: left;
+    margin-top: -8rem;
+    text-align: center;
 }
 
 .title {
@@ -87,6 +80,55 @@ a, a:-webkit-any-link {
     font-size: $font-size-subtitle;
     text-transform: uppercase;
     margin-top: -1.5rem;
+    font-weight: 400;
+}
+
+h1 {
+    font-size: $font-size-heading1;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: $font-size-heading2;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: $color-dark-green;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: $color-light-green;
+  border: 2px solid $color-medium-green;
+  border-radius: 999px;
+  padding: 14px 40px;
+  text-decoration: none;
+  font-family: 'Reem Kufi', sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: $color-dark-green !important;
+  text-transform: uppercase;
+  margin: 2rem;
+  text-align: center !important;
+  min-width: 10rem;
+  cursor: pointer;
+}
+
+.dotted-divider {
+  border: none;
+  height: 6px;
+  width: calc(100% - 4rem); // ← Abstand links & rechts
+  margin: 1.5rem 2rem;
+  background-image: radial-gradient(circle, $color-medium-green 3px, transparent 3px);
+  background-size: 16px 6px;
+  background-repeat: repeat-x;
+  background-position: center;
+  opacity: 0.6;
 }
 
 

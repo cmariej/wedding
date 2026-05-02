@@ -1,15 +1,11 @@
 @use 'variables' as *; 
 
-.heading-container {
-    margin-bottom: 6rem;
-}
-
 .subtitle {
     margin-top: 12rem;
 }
 
 .private-policy {
-    padding: 2rem 10rem 5rem 10rem;
+    padding: 2rem 10rem 0 10rem;
 
     * {
         text-transform: none;

@@ -1,1 +1,53 @@
-<p>faq works!</p>
+<div class="main-container">
+    <div class="heading-container">
+        <div class="heading-img">
+            <img src="/assets/img/leaves-4.png">
+            <img src="/assets/img/leaves-2.png">
+            <img src="/assets/img/leaves-3.png">
+        </div>
+        <div class="overlay-title">
+            <p class="title">eure</p>
+            <p class="subtitle">Fragen</p>
+        </div>
+    </div>
+    <h1>FAQ Hochzeitsspecial</h1>
+    <div class="faq">
+        @for (item of questions; track item.question;) {
+        <div class="question">
+            <h2>{{ item.question }}</h2>
+            <p>{{ item.answer }}</p>
+        </div>
+        }
+    </div>
+    <hr class="dotted-divider">
+    <h2 style="margin-bottom: 2rem;">Deine Frage ist nicht dabei? Dann schreib uns!</h2>
+    <div class="form-container">
+        <div class="form">
+            <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-group">
+                <div class="field">
+                    <label for="name" class="form-label">Name</label>
+                    <input pInputText type="text" id="name" placeholder="Dein Name" formControlName="name" [class.ng-invalid]="isInvalid('name')" />
+                    @if (isInvalid('name')) {
+                        <p-message severity="error" size="small" variant="simple">Dein Name wird benötigt</p-message>
+                    }
+                </div>
+                <div class="field">
+                    <label for="message" class="form-label">Deine Frage</label>
+                    <textarea pTextarea id="question" placeholder="Wie lautet deine Frage?" formControlName="message" rows="5" [class.ng-invalid]="isInvalid('message')"></textarea>
+                    @if (isInvalid('message')) {
+                        <p-message severity="error" size="small" variant="simple">Du hast die Frage vergessen</p-message>
+                    }
+                </div>
+                <button pButton type="submit" class="btn" style="margin-top: 1rem; margin-bottom: 0" [disabled]="isSubmitting">
+                    <span pButtonLabel>{{ isSubmitting ? 'Wird gesendet...' : 'Nachricht senden' }}</span>
+                    <i class="pi pi-send"></i>
+                </button>
+
+                @if (submitSuccess) {
+                    <p style="font-size: 0.8rem; margin-top: 0;">Deine Nachricht wurde erfolgreich gesendet!</p>
+                }
+            </form>
+        </div>
+    </div>
+</div>
+   

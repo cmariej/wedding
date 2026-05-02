@@ -1,0 +1,72 @@
+@use 'variables' as *;
+
+.title {
+    margin-left: -20%;
+    font-size: 6rem;
+}
+
+.faq {
+    padding: 0 10rem;
+
+    h2 {
+        text-align: left;
+    }
+
+    p {
+        text-transform: none;
+        text-align: justify;
+    }
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+
+    .success-message {
+        color: $color-dark-grey;
+        font-size: 0.9rem;
+        text-align: center;
+        font-style: italic;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.p-message-error.p-message-simple {
+    color: rgb(219, 63, 24);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    p {
+        text-align: start !important;
+    }
+
+    label {
+        font-weight: 500;
+        width:100%;
+    }
+
+    .p-message, label {
+        padding-left: 0.5rem;
+        text-align: start;
+    }
+
+    input, textarea {
+        background-color: #F5F3EE;
+        border: 2px solid $color-medium-green;
+        border-radius: 1rem;
+        width: 100%;
+        text-align: start;
+    } 
+}

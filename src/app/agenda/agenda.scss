@@ -1,6 +1,4 @@
-.heading-container { 
-      margin-bottom: 8rem;
-}
+@use 'variables' as *;
 
 .title {
     margin-left: -15%;
@@ -10,4 +8,130 @@
 .subtitle {
     font-size: 2rem;
     margin-left: 10%;
+}
+
+.agenda {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: left; // ← globales text-align: center überschreiben
+}
+
+.agenda-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.agenda-item {
+  display: grid;
+  grid-template-columns: 80px 24px 12rem;
+  align-items: stretch;
+  gap: 0 2rem;
+
+  // Tablet
+  @media (max-width: 768px) {
+    grid-template-columns: 60px 20px 280px;
+    gap: 0 1.5rem;
+  }
+
+  // Mobil
+  @media (max-width: 480px) {
+    grid-template-columns: 44px 16px 1fr;
+    gap: 0 1rem;
+  }
+}
+
+.agenda-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    width: 5rem;
+    height: auto;
+    object-fit: contain;
+
+    @media (max-width: 768px) {
+      width: 3.5rem;
+    }
+
+    @media (max-width: 480px) {
+      width: 2.5rem;
+    }
+  }
+}
+
+.agenda-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 480px) {
+    width: 16px;
+  }
+
+  .agenda-dot-img {
+    width: 25px;
+    height: 25px;
+    object-fit: contain;
+    flex-shrink: 0;
+
+    @media (max-width: 480px) {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .agenda-dot-top,
+  .agenda-dot-bottom {
+    width: 1px;
+    flex: 1;
+    background: $color-medium-green;
+    opacity: 0.5;
+
+    &.invisible {
+      background: transparent;
+    }
+  }
+}
+
+.agenda-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 0;
+
+  @media (max-width: 480px) {
+    padding: 1.5rem 0;
+  }
+
+  .agenda-time {
+    font-size: 0.8rem;
+    margin: 0 0 2px 0;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--color-text-secondary);
+    text-align: start;
+
+    @media (max-width: 480px) {
+      font-size: 0.7rem;
+    }
+  }
+
+  .agenda-title {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    text-align: start;
+
+    @media (max-width: 480px) {
+      font-size: 0.85rem;
+    }
+  }
 }
