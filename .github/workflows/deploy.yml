@@ -27,6 +27,9 @@ jobs:
       - name: Angular build
         run: npm run build -- --base-href "/"
 
+      - name: 404.html erstellen
+        run: cp ./dist/homepage/browser/index.html ./dist/homepage/browser/404.html
+
       - name: Deploy auf GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
