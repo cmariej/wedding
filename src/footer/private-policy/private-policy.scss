@@ -1,11 +1,15 @@
 @use 'variables' as *; 
 
+.title {
+    padding-top: 3rem;
+}
+
 .subtitle {
-    margin-top: 12rem;
+    font-size: 1.2rem;
 }
 
 .private-policy {
-    padding: 2rem 10rem 0 10rem;
+    margin: 2rem 10rem 0 10rem;
 
     * {
         text-transform: none;
@@ -13,8 +17,12 @@
     }
 
     .legal-title {
-        font-size: 2rem;
+        font-size: 1.6rem;
         color: $color-dark-green;
+
+        @media (max-width: $size-tablet) {
+            font-size: 1.3rem;
+        }
     }
 
     .legal-section {

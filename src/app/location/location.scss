@@ -7,3 +7,23 @@
         margin-top: 0;
     }
 }
+
+@media (max-width: $size-tablet) {
+  .title {
+    font-size: $font-size-title-tablet;
+  }
+
+  .subtitle {
+    font-size: $font-size-subtitle-tablet;
+  }
+}
+
+@media (max-width: $size-mobile) {
+  .title {
+    font-size: $font-size-title-mobile;
+  }
+
+  .subtitle {
+    font-size: $font-size-subtitle-mobile;
+  }
+}

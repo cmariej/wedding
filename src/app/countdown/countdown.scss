@@ -2,10 +2,25 @@
 
 .title {
     margin-left: -15%;
+
+    
+  @media (max-width: $size-tablet) {
+    padding-top: 3rem;
+    font-size: $font-size-title-mobile;
+  }
 }
 
 .subtitle {
     font-weight: 400;
+
+    @media (max-width: $size-tablet) {
+    font-size: $font-size-subtitle-mobile;
+  }
+}
+
+img {
+  width: 20rem;
+  height: auto;
 }
 
 .countdown {
@@ -20,14 +35,22 @@
 
     span {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
+      font-size: 3rem;
       font-weight: 300;
       line-height: 1;
       color: $color-dark-grey;
+
+      @media (max-width: $size-tablet) {
+        font-size: 3rem;
+      }
+
+      @media (max-width: 750px) {
+        font-size: 2rem;
+      }
     }
 
     small {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       margin-top: 4px;
@@ -42,13 +65,21 @@
 
   .colon {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 300;
     padding: 0 4px;
     color: $color-dark-grey;
 
     &.seconds {
       color: $color-medium-green;
+    }
+
+    @media (max-width: $size-tablet) {
+        font-size: 3rem;
+      }
+
+    @media (max-width: 750px) {
+      font-size: 2rem;
     }
   }
 }

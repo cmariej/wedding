@@ -35,12 +35,18 @@ a, a:-webkit-any-link {
     flex-direction: column;
     align-items: center; 
     padding-bottom: 3rem;
+
+    @media (max-width: $size-tablet) {
+      .main-container {
+        margin: 0 10rem 2rem 10rem; 
+      }
+    }
 }
 
 .heading-container {
       height:fit-content;
       position: relative;
-      margin-bottom: 3rem;
+      margin-bottom: 1rem;
 
     .heading-img {
       display: flex;
@@ -63,7 +69,7 @@ a, a:-webkit-any-link {
     color: black;
     font-size: 3rem;
     text-align: left;
-    margin-top: -8rem;
+    margin-top: -7rem;
     text-align: center;
 }
 
@@ -133,20 +139,30 @@ h2 {
 }
 
 // TABLET
-@media (max-width: 1200px) {
+@media (max-width: $size-tablet) {
+  * {
+    font-size: $font-size-text-tablet;
+  }
+
   .main-container {
     margin: 0 10rem 2rem 10rem; 
   }
-}
 
-@media (max-width: 950px) {
-  * {
-    font-size: $font-size-text-mobile;
+  .btn {
+    font-size: 16px;
   }
 }
 
-@media (max-width: 550px) {
+@media (max-width: $size-mobile) {
+  * {
+    font-size: $font-size-text-mobile;
+  }
+
   .main-container {
     margin: 0; 
+  }
+  
+  .btn {
+    font-size: 13px;
   }
 }

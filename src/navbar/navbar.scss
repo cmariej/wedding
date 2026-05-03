@@ -14,7 +14,7 @@
   .text {
     font-size: $font-size-nav;
     color: black;
-    font-weight: 600;
+    font-weight: 700;
 
     &:hover { 
       color: $color-dark-green;
@@ -77,6 +77,9 @@
   top: 1rem;
   right: 1.5rem;
   z-index: 200;
+  width: 2.5rem;
+  height:2.5rem;
+  justify-content: center;
 
   span {
     display: block;

@@ -1,5 +1,5 @@
 
-$font-size-text: 1.2rem;
+$font-size-text: 1.15rem;
 $font-size-nav: 1rem;
 $font-size-nav-active: 1.25rem;
 $font-size-title: 4.5rem;
@@ -8,11 +8,15 @@ $font-size-footer: 0.9rem;
 $font-size-heading1: 1.5rem;
 $font-size-heading2: 1.25rem;
 
+$font-size-text-tablet: 1rem;
+$font-size-title-tablet: 4rem;
+$font-size-subtitle-tablet: 2.6rem;
+
 $font-size-text-mobile: 0.9rem;
 $font-size-nav-mobile: 0.8rem;
 $font-size-nav-active-mobile: 1rem;
-$font-size-title-mobile: 3rem;
-$font-size-subtitle-mobile: 2rem;
+$font-size-title-mobile: 3.6rem;
+$font-size-subtitle-mobile: 2.2rem;
 $font-size-footer-mobile: 0.7rem;
 $font-size-heading1-mobile: 1.2rem;
 $font-size-heading2-mobile: 1rem;
@@ -30,5 +34,6 @@ $color-dark-green: #526455;
 
 $color-red: rgb(250, 88, 48);
 
-
+$size-tablet: 1200px;
+$size-mobile: 650px;
 
