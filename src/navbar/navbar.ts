@@ -32,6 +32,10 @@ export class Navbar {
     event.stopPropagation();
     this.dropdownOpen = !this.dropdownOpen;
   }
+  
+  isDetailsActive(): boolean {
+    return this.router.url.startsWith('/details');
+  }
 
   toggleMenu(): void {
     this.menuOpen = !this.menuOpen;

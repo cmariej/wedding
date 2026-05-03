@@ -11,13 +11,15 @@
     <a routerLink="/agenda" class="text" routerLinkActive="active" (click)="closeMenu()">Agenda</a>
 
     <div class="nav-dropdown" [class.open]="dropdownOpen">
-        <span class="text" (click)="toggleDropdown($event)">
-        Details
+        <span class="text" 
+                (click)="toggleDropdown($event)"
+                [class.active]="isDetailsActive()">
+            Details
         </span>
         <div class="dropdown-menu">
-        <a routerLink="/details" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">Allgemeines</a>
-        <a routerLink="/details/menu" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">Menü</a>
-        <a routerLink="/details/faq" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">FAQ</a>
+        <a routerLink="/details" class="dropdown-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Allgemeines</a>
+        <a routerLink="/details/menu" class="dropdown-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">Menü</a>
+        <a routerLink="/details/faq" class="dropdown-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">FAQ</a>
         </div>
     </div>
 

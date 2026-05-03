@@ -16,6 +16,7 @@
     color: black;
     font-weight: 700;
     cursor: pointer;
+    text-decoration: none;
 
     &:hover { 
       color: $color-dark-green;
@@ -24,6 +25,7 @@
     &.active {
       color: $color-dark-green;
       font-size: $font-size-nav-active;
+      text-shadow: 0 0 8px rgba($color-dark-green, 0.6);
     }
   }
 }
@@ -58,11 +60,18 @@
   text-transform: uppercase;
   color: var(--color-text-primary);
   text-decoration: none;
+  -moz-text-decoration: none !important;
   text-align: center;
   white-space: nowrap;
 
-  &:hover, &.active {
+  &:hover {
     color: $color-dark-green;
+  }
+
+  &.active {
+    color: $color-dark-green;
+    font-weight: 900;
+    text-shadow: 0 0 8px rgba($color-dark-green, 0.7);
   }
 }
 
