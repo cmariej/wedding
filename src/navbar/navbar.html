@@ -1,8 +1,27 @@
-<div class="navbar">
-    <a routerLink="/general" class="text" routerLinkActive="active">Allgemeines</a>
-    <a routerLink="/countdown" class="text" routerLinkActive="active">Countdown</a>
-    <a routerLink="/location" class="text" routerLinkActive="active">Veranstalungsort</a>
-    <a routerLink="/agenda" class="text" routerLinkActive="active">Agenda</a>
-    <a routerLink="/details" class="text" routerLinkActive="active">Details</a>
-    <a routerLink="/rsvp" class="text" routerLinkActive="active">Zusage</a>
+<button class="burger" (click)="toggleMenu()">
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+    <span [class.open]="menuOpen"></span>
+</button>
+
+<div class="navbar" [class.open]="menuOpen">
+    <a routerLink="/general" class="text" routerLinkActive="active" (click)="closeMenu()">Allgemeines</a>
+    <a routerLink="/countdown" class="text" routerLinkActive="active" (click)="closeMenu()">Countdown</a>
+    <a routerLink="/location" class="text" routerLinkActive="active" (click)="closeMenu()">Veranstaltungsort</a>
+    <a routerLink="/agenda" class="text" routerLinkActive="active" (click)="closeMenu()">Agenda</a>
+
+    <div class="nav-dropdown" [class.open]="dropdownOpen">
+        <span class="text" (click)="toggleDropdown($event)">
+        Details
+        </span>
+        <div class="dropdown-menu">
+        <a routerLink="/details" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">Allgemeines</a>
+        <a routerLink="/details/menu" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">Menü</a>
+        <a routerLink="/details/faq" class="dropdown-item" routerLinkActive="active" (click)="closeMenu()">FAQ</a>
+        </div>
+    </div>
+
+    <a routerLink="/rsvp" class="text" routerLinkActive="active" (click)="closeMenu()">Zusage</a>
 </div>
+
+

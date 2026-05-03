@@ -12,6 +12,7 @@
   font-weight: 300;
   text-transform: uppercase;
   text-align: center;
+  font-variant-numeric: lining-nums;
 }
 
 a, a:-webkit-any-link {
@@ -21,9 +22,9 @@ a, a:-webkit-any-link {
 
 .root-container {
     background-image: url('/assets/img/background.png');
-    background-size: cover;    
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: 175%;    
+    background-position: top;
+    background-repeat: repeat;
 }
 
 .main-container {
@@ -39,8 +40,7 @@ a, a:-webkit-any-link {
 .heading-container {
       height:fit-content;
       position: relative;
-      margin-bottom: 1rem;
-    }
+      margin-bottom: 3rem;
 
     .heading-img {
       display: flex;
@@ -56,6 +56,7 @@ a, a:-webkit-any-link {
         object-fit: cover;
       }
     } 
+  }
 
 .overlay-title {
     position: flex;
@@ -131,5 +132,21 @@ h2 {
   opacity: 0.6;
 }
 
+// TABLET
+@media (max-width: 1200px) {
+  .main-container {
+    margin: 0 10rem 2rem 10rem; 
+  }
+}
 
+@media (max-width: 950px) {
+  * {
+    font-size: $font-size-text-mobile;
+  }
+}
 
+@media (max-width: 550px) {
+  .main-container {
+    margin: 0; 
+  }
+}

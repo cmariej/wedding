@@ -16,8 +16,8 @@ export const routes: Routes = [
     { path: 'location', component: Location },
     { path: 'agenda', component: Agenda },
     { path: 'details', component: Details },
+    { path: 'details/menu', component: Menu },
+    { path: 'details/faq', component: Faq },
     { path: 'rsvp', component: Rsvp },
     { path: 'private-policy', component: PrivatePolicy },
-    { path: 'menu', component: Menu },
-    { path: 'faq', component: Faq },
 ];

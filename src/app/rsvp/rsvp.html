@@ -45,7 +45,7 @@
         <div class="form-card" [class.invalid]="isInvalid('name')">
             <label class="form-label" for="name">Dein Name <span class="required">*</span></label>
             <input id="name" type="text" formControlName="name"
-                placeholder="Geben Sie Ihren Namen ein" class="form-input" />
+                placeholder="Gib hier deinen Namen ein" class="form-input" />
             @if (isInvalid('name')) {
             <p class="error-msg">Dein Name wird benötigt</p>
             }

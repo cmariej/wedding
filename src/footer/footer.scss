@@ -3,7 +3,6 @@
 :host {
     display: block;
     background: $color-light-green;
-    min-height: $height-footer;
 }
 
 footer {
@@ -11,6 +10,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: $height-footer;
   padding: 1rem 2rem;
   font-size: $font-size-footer;
 
@@ -23,11 +23,16 @@ footer {
   } 
 }
 
-footer .center {
-  
-}
-
 footer .right {
   position: absolute;
   right: 2rem;
+}
+
+@media (max-width: 550px) {
+  footer {
+    .center {
+    position: absolute;
+    left: 2rem;
+    }
+  }
 }
