@@ -25,7 +25,10 @@ jobs:
         run: npm install
 
       - name: Angular build
-        run: npm run build -- --base-href "/"
+        run: npm run build
+
+      - name: 404.html erstellen
+        run: cp ./dist/wedding/browser/index.html ./dist/wedding/browser/404.html
 
       - name: Deploy auf GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
