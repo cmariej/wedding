@@ -27,12 +27,9 @@ jobs:
       - name: Angular build
         run: npm run build -- --base-href "/"
 
-      - name: 404.html erstellen
-        run: cp ./dist/homepage/browser/index.html ./dist/homepage/browser/404.html
-
       - name: Deploy auf GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/homepage/browser
+          publish_dir: ./dist/wedding/browser
           #cname: www.hochzeit.jung-privat.de
