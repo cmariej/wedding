@@ -25,7 +25,8 @@ jobs:
         run: npm install
 
       - name: Angular build
-        run: npm run build
+        run: npm run build -- --base-href "/wedding/"
+        #run: npm run build -- --base-href "/"
 
       - name: 404.html erstellen
         run: cp ./dist/wedding/browser/index.html ./dist/wedding/browser/404.html
