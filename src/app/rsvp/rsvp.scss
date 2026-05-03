@@ -90,6 +90,7 @@
   color: var(--color-text-primary);
   outline: none;
   resize: vertical;
+  text-transform: none;
 
   &::placeholder {
     color: var(--color-text-secondary);

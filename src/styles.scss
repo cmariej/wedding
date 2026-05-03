@@ -37,9 +37,8 @@ a, a:-webkit-any-link {
     padding-bottom: 3rem;
 
     @media (max-width: $size-tablet) {
-      .main-container {
-        margin: 0 10rem 2rem 10rem; 
-      }
+        margin: 0 10rem; 
+        min-height: unset;
     }
 }
 
@@ -142,10 +141,6 @@ h2 {
 @media (max-width: $size-tablet) {
   * {
     font-size: $font-size-text-tablet;
-  }
-
-  .main-container {
-    margin: 0 10rem 2rem 10rem; 
   }
 
   .btn {
