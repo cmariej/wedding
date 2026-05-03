@@ -28,6 +28,9 @@ jobs:
         run: npm run build -- --base-href "/wedding/"
         #run: npm run build -- --base-href "/"
 
+      - name: Assets prüfen
+        run: find ./dist -name "*.png" | head -20
+
       - name: 404.html erstellen
         run: cp ./dist/wedding/browser/index.html ./dist/wedding/browser/404.html
 
