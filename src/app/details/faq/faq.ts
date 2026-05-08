@@ -5,6 +5,7 @@ import { InputText } from 'primeng/inputtext';
 import { Textarea } from 'primeng/textarea';
 import emailjs from '@emailjs/browser';
 import { HttpClient } from '@angular/common/http';
+import { parse } from 'yaml';
 
 interface QuestionItem {
   question: string;
@@ -22,7 +23,7 @@ interface QuestionData {
   styleUrl: './faq.scss',
 })
 export class Faq {
-  private jsonUrl = 'https://cmariej.github.io/wedding-data/faq.json?t=' + Date.now();
+  private url = 'https://cmariej.github.io/wedding-data/faq.yaml?t=' + Date.now();
 
   fb = inject(FormBuilder);
   contactForm: FormGroup;
@@ -39,7 +40,10 @@ export class Faq {
   }
 
   ngOnInit(): void {
-    this.http.get<QuestionData>(this.jsonUrl).subscribe(data => {
+    this.http.get(this.url, { responseType: 'text' })
+          .subscribe(text => {
+    
+            const data = parse(text) as QuestionData;
       this.questions = [...(data.questions ?? [])];
       this.cdr.detectChanges();
     });
