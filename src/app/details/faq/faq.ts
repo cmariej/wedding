@@ -22,7 +22,7 @@ interface QuestionData {
   styleUrl: './faq.scss',
 })
 export class Faq {
-  private jsonUrl = 'https://cmariej.github.io/wedding-data/faq.json';
+  private jsonUrl = 'https://cmariej.github.io/wedding-data/faq.json?t=' + Date.now();
 
   fb = inject(FormBuilder);
   contactForm: FormGroup;

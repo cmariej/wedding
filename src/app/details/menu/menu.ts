@@ -20,7 +20,7 @@ interface MenuData {
   styleUrl: './menu.scss',
 })
 export class Menu implements OnInit {
-  private jsonUrl = 'https://cmariej.github.io/wedding-data/menu.json';
+  private jsonUrl = 'https://cmariej.github.io/wedding-data/menu.json?t=' + Date.now();
 
   afternoon: MenuItem[] = [];
   dinner: MenuItem[] = [];
