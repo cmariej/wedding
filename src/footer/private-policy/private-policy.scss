@@ -29,3 +29,15 @@
         margin-bottom: 3.5rem;
     }
 }
+
+@media (max-width: 1650px) {
+    .private-policy {
+        margin: 1.5rem 4rem 0 4rem;
+    }
+}
+
+@media (max-width: $size-mobile) {
+    .private-policy {
+        margin: 1.5rem 3rem 0 3rem;
+    }
+}
