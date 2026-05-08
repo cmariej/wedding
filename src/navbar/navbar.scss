@@ -32,6 +32,24 @@
 
 .nav-dropdown {
   position: relative;
+
+  .dropdown-menu {
+    display: none; // Desktop: standardmäßig versteckt
+  }
+
+  &:hover .dropdown-menu,
+  &.open .dropdown-menu {
+    display: flex; // Desktop: per Hover
+    flex-direction: column;
+
+  }
+
+  @media (max-width: $size-tablet) {
+    .dropdown-menu {
+      display: flex; // Mobile: immer sichtbar
+      flex-direction: column;
+    }
+  }
 }
 
 .dropdown-menu {
@@ -72,6 +90,34 @@
     color: $color-dark-green;
     font-weight: 900;
     text-shadow: 0 0 8px rgba($color-dark-green, 0.7);
+  }
+}
+
+.mobile-only {
+  display: none;
+}
+
+@media (max-width: $size-tablet) {
+  .mobile-only {
+    display: block;
+  }
+}
+
+.dropdown-arrow {
+  display: none; // Desktop: versteckt
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+@media (max-width: $size-tablet) {
+  .dropdown-arrow {
+    display: inline; // Mobile: sichtbar
+  }
+
+  .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 

@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import data from './questions.json';
+import data from './faq.json';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Message } from 'primeng/message';
 import { InputText } from 'primeng/inputtext';

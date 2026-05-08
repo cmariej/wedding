@@ -43,43 +43,24 @@
 
         <!-- Name -->
         <div class="form-card" [class.invalid]="isInvalid('name')">
-            <label class="form-label" for="name">Dein Name <span class="required">*</span></label>
+            <label class="form-label" for="name">Dein Name / Eure Namen<span class="required">*</span></label>
             <input id="name" type="text" formControlName="name"
-                placeholder="Gib hier deinen Namen ein" class="form-input" />
+                placeholder="Gib hier deinen/eure Namen ein" class="form-input" />
             @if (isInvalid('name')) {
             <p class="error-msg">Dein Name wird benötigt</p>
             }
         </div>
 
-        <!-- Gäste -->
         @if (form.get('attending')?.value === 'yes') {
 
-        <div class="form-card" [class.invalid]="isInvalid('guests')">
-        <label class="form-label">Wie viele Gäste bringst du mit? <span class="required">*</span></label>
-        <div class="radio-group">
-            <label class="radio-label">
-            <input type="radio" formControlName="guests" value="solo" /> Nur ich
-            </label>
-            <label class="radio-label">
-            <input type="radio" formControlName="guests" value="1" /> Ich + 1 Gast
-            </label>
-            <label class="radio-label">
-            <input type="radio" formControlName="guests" value="2" /> Ich + 2 Gäste
-            </label>
-        </div>
-        @if (isInvalid('guests')) {
-            <p class="error-msg">Bitte wähle eine Option</p>
-        }
-        </div>
-
         <div class="form-card">
-        <label class="form-label" for="food">Hast du oder deine Begleitung(en) Essenspräferenzen (z.B. vegan, glutenfrei, etc.)?</label>
+        <label class="form-label" for="food">Sind Essenspräferenzen zu berücksichtigen (z.B. vegan, glutenfrei, etc.)?</label>
         <textarea id="food" formControlName="food"
                     placeholder="Deine Antwort" class="form-textarea" rows="3"></textarea>
         </div>
 
         <div class="form-card" [class.invalid]="isInvalid('dog')">
-        <label class="form-label">Bringst du einen Hund mit? <span class="required">*</span></label>
+        <label class="form-label">Kommt ein Hund mit?<span class="required">*</span></label>
         <div class="radio-group">
             <label class="radio-label">
             <input type="radio" formControlName="dog" value="yes" /> Ja

@@ -17,7 +17,6 @@ export class Rsvp implements OnInit {
   form: FormGroup = this.fb.group({
     attending: [null, Validators.required],
     name: ['', Validators.required],
-    guests: ['1'],
     food: [''],
     dog: [null],
     message: [''],
@@ -30,20 +29,16 @@ export class Rsvp implements OnInit {
 
   ngOnInit(): void {
     this.form.get('attending')?.valueChanges.subscribe(value => {
-      const guests = this.form.get('guests');
       const dog = this.form.get('dog');
       const food = this.form.get('food');
       const message = this.form.get('message');
 
       if (value === 'yes') {
-        guests?.setValidators(Validators.required);
         dog?.setValidators(Validators.required);
       } else {
-        guests?.clearValidators();
         dog?.clearValidators();
       }
 
-      guests?.updateValueAndValidity();
       dog?.updateValueAndValidity();
       food?.updateValueAndValidity();
       message?.updateValueAndValidity();
@@ -61,7 +56,6 @@ export class Rsvp implements OnInit {
       {
         attending: this.form.value.attending === 'yes' ? 'Ja' : 'Leider nicht',
         name: this.form.value.name,
-        guests: this.form.value.guests,
         food: this.form.value.food || ' -',
         dog: this.form.value.dog === 'yes' ? 'Ja' : 'Nein',
         message: this.form.value.message || ' -',

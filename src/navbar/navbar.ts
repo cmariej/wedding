@@ -12,13 +12,11 @@ export class Navbar {
   router = inject(Router);
   dropdownOpen = false;
   menuOpen = false;
+  isMobile = false;
+   private hoverTimeout: any;
 
   constructor() {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.dropdownOpen = false;
-    });
+    this.checkMobile();
 
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
@@ -28,11 +26,26 @@ export class Navbar {
     });
   }
 
-  toggleDropdown(event: Event): void {
-    event.stopPropagation();
-    this.dropdownOpen = !this.dropdownOpen;
+  @HostListener('window:resize')
+  checkMobile(): void {
+    this.isMobile = window.innerWidth < 768;
   }
-  
+
+  onDesktopEnter(): void {
+    if (!this.isMobile) {
+      this.hoverTimeout = setTimeout(() => {
+        this.dropdownOpen = true;
+      }, 3000);
+    }
+  }
+
+  onDesktopLeave(): void {
+    if (!this.isMobile) {
+      clearTimeout(this.hoverTimeout);
+      this.dropdownOpen = false;
+    }
+  }
+
   isDetailsActive(): boolean {
     return this.router.url.startsWith('/details');
   }
