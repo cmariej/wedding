@@ -180,13 +180,15 @@
   left: 0;
   width: 100%;
   height: 100dvh;
-  background: white;
+  background: $color-beige;
   justify-content: flex-start;
   align-items: center;
   gap: 1.5rem;
   z-index: 200;
   overflow-y: auto;
   box-sizing: border-box;
+  box-shadow: 0 1rem 5rem silver;
+  border-radius: 1rem;
 
   &.open {
     display: flex;
