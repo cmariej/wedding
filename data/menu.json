@@ -1,0 +1,15 @@
+{
+    "afternoon": [
+        { "name": "Hochzeitstorte Erdbeer-Vanille", "tags": ["vegan", "glutenfrei"] },
+        { "name": "TBA" }
+    ],
+    "dinner": [
+        { "name": "TBA" }
+    ],
+    "snacks": [
+        { "name": "TBA" }
+    ],
+    "drinks": [
+        { "name": "TBA" }
+    ]
+}

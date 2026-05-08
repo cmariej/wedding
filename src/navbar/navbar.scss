@@ -159,7 +159,7 @@
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: $size-tablet) {
   .burger {
     display: flex;
     position: fixed;

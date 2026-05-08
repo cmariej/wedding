@@ -1,5 +1,17 @@
-import { Component } from '@angular/core';
-import data from './menu.json';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+interface MenuItem {
+  name: string;
+  tags?: string[];
+}
+
+interface MenuData {
+  afternoon: MenuItem[];
+  dinner: MenuItem[];
+  snacks: MenuItem[];
+  drinks: MenuItem[];
+}
 
 @Component({
   selector: 'app-menu',
@@ -7,9 +19,37 @@ import data from './menu.json';
   templateUrl: './menu.html',
   styleUrl: './menu.scss',
 })
-export class Menu {
-  afternoon = data.afternoon;
-  dinner = data.dinner;
-  snacks = data.snacks;
-  drinks = data.drinks;
+export class Menu implements OnInit {
+
+  private jsonUrl = 'https://cmariej.github.io/wedding/data/menu.json?t=' + Date.now();
+
+  afternoon: MenuItem[] = [];
+  dinner: MenuItem[] = [];
+  snacks: MenuItem[] = [];
+  drinks: MenuItem[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http.get<MenuData>(this.jsonUrl).subscribe(data => {
+      this.afternoon = data.afternoon ?? [];
+      this.dinner = data.dinner ?? [];
+      this.snacks = data.snacks ?? [];
+      this.drinks = data.drinks ?? [];
+    });
+  }
+
+  hasTag(item: MenuItem, tag: string): boolean {
+    return (item.tags ?? []).includes(tag);
+  }
+
+  getDisplayName(item: MenuItem): string {
+    const tagMap: Record<string, string> = {
+      vegan: '🌱',
+      vegetarisch: '🥕',
+      glutenfrei: '🌾'
+    };
+    const icons = (item.tags ?? []).map(tag => tagMap[tag] ?? '').join('');
+    return item.name + '\u00A0\u00A0\u00A0' + icons;
+  }
 }

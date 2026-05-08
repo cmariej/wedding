@@ -12,27 +12,41 @@
     </div>
     <div class="menu">
         <h2>Kaffee & Kuchen</h2>
-        @for (item of afternoon; track item;) {
-            <p>{{ item }}</p>
+        @for (item of afternoon; track item.name) {
+            <p class="menu-item">{{ getDisplayName(item) }}</p>
         }
     </div>
     <div class="menu">
         <h2>Abendessen</h2>
-        @for (item of dinner; track item;) {
-            <p>{{ item }}</p>
+        @for (item of dinner; track item.name) {
+            <p class="menu-item">{{ getDisplayName(item) }}</p>
         }
     </div>
     <div class="menu">
         <h2>Snacks</h2>
-        @for (item of snacks; track item;) {
-            <p>{{ item }}</p>
+        @for (item of snacks; track item.name) {
+            <p class="menu-item">{{ getDisplayName(item) }}</p>
         }
     </div>
     <div class="menu">
         <h2>Getränke</h2>
-        @for (item of drinks; track item;) {
-            <p>{{ item }}</p>
+        @for (item of drinks; track item.name) {
+            <p class="menu-item">{{ getDisplayName(item) }}</p>
         }
     </div>
     <h1 style="padding: 2rem 0;">Guten Appetit!</h1>
+    <div class="footnote-container">
+        <div class="footnote">
+            <span class="tag vegan" title="Vegan">🌱</span>
+            <p>Vegan</p>
+        </div>
+        <div class="footnote">
+            <span class="tag vegetarisch" title="Vegetarisch">🥕</span>
+            <p>Vegetarisch</p>
+        </div>
+        <div class="footnote">
+            <span class="tag glutenfrei" title="Glutenfrei">🌾</span>
+            <p>Glutenfrei</p>
+        </div>
+    </div>
 </div>

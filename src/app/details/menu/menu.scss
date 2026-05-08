@@ -13,3 +13,68 @@
         font-size: 1.75rem;
     }
 }
+
+.menu-item {
+  display: flex;
+  justify-content: center;
+}
+
+.tags {
+    display: inline;
+    white-space: nowrap; // Tags brechen nie um
+  }
+
+  .tag {
+    display: inline;
+  }
+
+.footnote-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+
+    .footnote {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media (max-width: 1500px) {
+    .footnote-container {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: $size-tablet) {
+    .footnote-container {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 860px) {
+    .footnote-container {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+@media (max-width: $size-mobile) {
+    .footnote-container {
+        flex-direction: row;
+        gap: 2rem;
+    }
+}
+
+
+@media (max-width: 400px) {
+    .footnote-container {
+        flex-direction: column;
+        gap: 0;
+    }
+}
