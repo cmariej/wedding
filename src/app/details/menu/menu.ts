@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 interface MenuItem {
@@ -20,23 +20,24 @@ interface MenuData {
   styleUrl: './menu.scss',
 })
 export class Menu implements OnInit {
-
-  private jsonUrl = 'https://cmariej.github.io/wedding/data/menu.json?t=' + Date.now();
+  private jsonUrl = 'https://cmariej.github.io/wedding-data/menu.json';
 
   afternoon: MenuItem[] = [];
   dinner: MenuItem[] = [];
   snacks: MenuItem[] = [];
   drinks: MenuItem[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
     this.http.get<MenuData>(this.jsonUrl).subscribe(data => {
-      this.afternoon = data.afternoon ?? [];
-      this.dinner = data.dinner ?? [];
-      this.snacks = data.snacks ?? [];
-      this.drinks = data.drinks ?? [];
-    });
+      this.afternoon = [...data.afternoon];
+      this.dinner = [...data.dinner];
+      this.snacks = [...data.snacks];
+      this.drinks = [...data.drinks];
+
+      this.cdr.detectChanges();
+    }); 
   }
 
   hasTag(item: MenuItem, tag: string): boolean {

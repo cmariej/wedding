@@ -1,14 +1,18 @@
-import { Component, inject } from '@angular/core';
-import data from './faq.json';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Message } from 'primeng/message';
 import { InputText } from 'primeng/inputtext';
 import { Textarea } from 'primeng/textarea';
 import emailjs from '@emailjs/browser';
+import { HttpClient } from '@angular/common/http';
 
-interface Question {
+interface QuestionItem {
   question: string;
   answer: string;
+}
+
+interface QuestionData {
+  questions: QuestionItem[];
 }
 
 @Component({
@@ -18,18 +22,26 @@ interface Question {
   styleUrl: './faq.scss',
 })
 export class Faq {
-  questions: Question[] = data.questions;
+  private jsonUrl = 'https://cmariej.github.io/wedding-data/faq.json';
 
   fb = inject(FormBuilder);
   contactForm: FormGroup;
   formSubmitted: boolean = false;
   isSubmitting: boolean = false;
   submitSuccess: boolean = false;
+  questions: QuestionItem[] = [];
 
-  constructor() {
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {
     this.contactForm = this.fb.group({
       name: ['', Validators.required],
       message: ['', Validators.required]
+    });
+  }
+
+  ngOnInit(): void {
+    this.http.get<QuestionData>(this.jsonUrl).subscribe(data => {
+      this.questions = [...(data.questions ?? [])];
+      this.cdr.detectChanges();
     });
   }
 
