@@ -11,7 +11,8 @@
     <a routerLink="/agenda" class="text" routerLinkActive="active" (click)="closeMenu()">Agenda</a>
 
     <!-- DETAILS -->
-    <div class="nav-dropdown"
+    <div class="nav-dropdown" 
+        [class.open]="dropdownOpen"
         (mouseenter)="onDesktopEnter()"
         (mouseleave)="onDesktopLeave()">
         

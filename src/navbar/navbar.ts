@@ -33,15 +33,12 @@ export class Navbar {
 
   onDesktopEnter(): void {
     if (!this.isMobile) {
-      this.hoverTimeout = setTimeout(() => {
-        this.dropdownOpen = true;
-      }, 3000);
+      this.dropdownOpen = true;
     }
   }
 
   onDesktopLeave(): void {
     if (!this.isMobile) {
-      clearTimeout(this.hoverTimeout);
       this.dropdownOpen = false;
     }
   }
