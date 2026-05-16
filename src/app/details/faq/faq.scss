@@ -9,6 +9,20 @@
     margin-top: -9rem;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 200px;
+}
+
+::ng-deep .mat-mdc-progress-spinner circle {
+  stroke: $color-medium-green !important;
+}
+
+
 .question {
     margin-bottom: 3rem;
 }

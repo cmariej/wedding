@@ -5,13 +5,26 @@
     margin-left: -15%;
 }
 
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 200px;
+}
+
+::ng-deep .mat-mdc-progress-spinner circle {
+  stroke: $color-medium-green !important;
+}
+
 .menu {
     width: 80%;
-    margin-bottom: 3rem;
+    margin-bottom: 3rem;  
+}
 
-    h2 {
-        font-size: 1.75rem;
-    }
+h2 {
+    font-size: 1.75rem;
 }
 
 .menu-item {

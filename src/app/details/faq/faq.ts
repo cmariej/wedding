@@ -5,7 +5,9 @@ import { InputText } from 'primeng/inputtext';
 import { Textarea } from 'primeng/textarea';
 import emailjs from '@emailjs/browser';
 import { HttpClient } from '@angular/common/http';
-import { parse } from 'yaml';
+import { environment } from '../../../environments/environment';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CommonModule } from '@angular/common';
 
 interface QuestionItem {
   question: string;
@@ -18,18 +20,19 @@ interface QuestionData {
 
 @Component({
   selector: 'app-faq',
-  imports: [Message, InputText, Textarea, ReactiveFormsModule],
+  standalone: true,
+  imports: [Message, InputText, Textarea, ReactiveFormsModule, MatProgressSpinnerModule, CommonModule],
   templateUrl: './faq.html',
-  styleUrl: './faq.scss',
+  styleUrls: ['./faq.scss'],
 })
 export class Faq {
-  private url = 'https://cmariej.github.io/wedding-data/faq.yaml?t=' + Date.now();
 
   fb = inject(FormBuilder);
   contactForm: FormGroup;
   formSubmitted: boolean = false;
   isSubmitting: boolean = false;
   submitSuccess: boolean = false;
+  loading = false;
   questions: QuestionItem[] = [];
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {
@@ -40,14 +43,33 @@ export class Faq {
   }
 
   ngOnInit(): void {
-    this.http.get(this.url, { responseType: 'text' })
-          .subscribe(text => {
-    
-            const data = parse(text) as QuestionData;
-      this.questions = [...(data.questions ?? [])];
-      this.cdr.detectChanges();
-    });
+    this.loadFaq();
   }
+
+ loadFaq() {
+  this.loading = true;
+
+  setTimeout(() => {
+    this.http
+      .get<QuestionItem[]>(
+        `${environment.apiUrl}/projects/Hochzeit/faq`
+      )
+      .subscribe({
+        next: data => {
+
+          this.questions = data;
+
+          this.loading = false;
+        },
+
+        error: err => {
+          console.error(err);
+
+          this.loading = false;
+        }
+      });
+  }, 500);
+}
 
   onSubmit() {
     this.formSubmitted = true;

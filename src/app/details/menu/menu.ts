@@ -1,6 +1,9 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { parse } from 'yaml';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { environment } from '../../../environments/environment';
+import { CommonModule } from '@angular/common';
 
 interface MenuItem {
   name: string;
@@ -16,7 +19,8 @@ interface MenuData {
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  standalone: true,
+  imports: [MatProgressSpinnerModule, CommonModule],
   templateUrl: './menu.html',
   styleUrl: './menu.scss',
 })
@@ -27,21 +31,39 @@ export class Menu implements OnInit {
   dinner: MenuItem[] = [];
   snacks: MenuItem[] = [];
   drinks: MenuItem[] = [];
+  loading = false;
 
   constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {}
 
   ngOnInit(): void {
-    this.http.get(this.url, { responseType: 'text' })
-      .subscribe(text => {
+    this.loadMenu();
+  }
 
-        const data = parse(text) as MenuData;
+  loadMenu() {
+    this.loading = true;
 
-        this.afternoon = data.afternoon ?? [];
-        this.dinner = data.dinner ?? [];
-        this.snacks = data.snacks ?? [];
-        this.drinks = data.drinks ?? [];
+    this.http
+      .get<any[]>(`${environment.apiUrl}/projects/Hochzeit/menue`)
+      .subscribe({
+        next: data => {
 
-        this.cdr.detectChanges();
+          this.afternoon = data.filter(item => item.category === 'afternoon');
+
+          this.dinner = data.filter(item => item.category === 'dinner');
+
+          this.snacks = data.filter(item => item.category === 'snacks');
+
+          this.drinks = data.filter(item => item.category === 'drinks');
+
+          this.loading = false;
+
+          this.cdr.detectChanges();
+        },
+
+        error: err => {
+          console.error(err);
+          this.loading = false;
+        }
       });
   }
 

@@ -1,9 +1,17 @@
-@use 'variables' as *; 
+@use 'variables' as *;
+@use '@angular/material' as mat;
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Corinthia:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400&display=swap" rel="stylesheet');
 
 
+html {
+  @include mat.theme((
+    color: mat.$azure-palette,
+    typography: Roboto,
+    density: 0
+  ));
+}
 
 * {
   font-family: 'Cormorant Garamond', serif;
@@ -15,92 +23,93 @@
   font-variant-numeric: lining-nums;
 }
 
-a, a:-webkit-any-link {
-    color: inherit;
-    text-decoration: none;
+a,
+a:-webkit-any-link {
+  color: inherit;
+  text-decoration: none;
 }
 
 .root-container {
-    background-image: url('assets/img/background.png');
-    background-size: 175%;    
-    background-position: top;
-    background-repeat: repeat;
+  background-image: url('assets/img/background.png');
+  background-size: 175%;
+  background-position: top;
+  background-repeat: repeat;
 }
 
 .main-container {
-    margin: 0 20rem 2rem 20rem;
-    min-height: calc(100vh - $height-navbar - 2* $height-footer);
-    background: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    padding-bottom: 3rem;
+  margin: 0 20rem 2rem 20rem;
+  min-height: calc(100vh - $height-navbar - 2 * $height-footer);
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 3rem;
 
-    @media (max-width: $size-tablet) {
-        margin: 0 10rem; 
-        min-height: unset;
-    }
+  @media (max-width: $size-tablet) {
+    margin: 0 10rem;
+    min-height: unset;
+  }
 }
 
 .heading-container {
-      height:fit-content;
-      position: relative;
-      margin-bottom: 1rem;
+  height: fit-content;
+  position: relative;
+  margin-bottom: 1rem;
 
-    .heading-img {
-      display: flex;
-      justify-content: space-between;
-      flex-direction: row;
-      width: 100%;
-      max-height: fit-content;
-      align-items: flex-start;
-    
-      img{
-        width: 33%;
-        height: auto;
-        object-fit: cover;
-      }
-    } 
+  .heading-img {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 100%;
+    max-height: fit-content;
+    align-items: flex-start;
+
+    img {
+      width: 33%;
+      height: auto;
+      object-fit: cover;
+    }
   }
+}
 
 .overlay-title {
-    position: flex;
-    color: black;
-    font-size: 3rem;
-    text-align: left;
-    margin-top: -7rem;
-    text-align: center;
+  position: flex;
+  color: black;
+  font-size: 3rem;
+  text-align: left;
+  margin-top: -7rem;
+  text-align: center;
 }
 
 .title {
-    margin-bottom: 0;
-    font-size: $font-size-title;
-    font-family: 'Corinthia', cursive;
-    letter-spacing: -0.015rem;
-    text-transform: none;
+  margin-bottom: 0;
+  font-size: $font-size-title;
+  font-family: 'Corinthia', cursive;
+  letter-spacing: -0.015rem;
+  text-transform: none;
 }
 
 .subtitle {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: $font-size-subtitle;
-    text-transform: uppercase;
-    margin-top: -1.5rem;
-    font-weight: 400;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: $font-size-subtitle;
+  text-transform: uppercase;
+  margin-top: -1.5rem;
+  font-weight: 400;
 }
 
 h1 {
-    font-size: $font-size-heading1;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-    font-weight: 600;
+  font-size: $font-size-heading1;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 h2 {
-    font-size: $font-size-heading2;
-    text-transform: uppercase;
-    font-weight: 900;
-    color: $color-dark-green;
+  font-size: $font-size-heading2;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: $color-dark-green;
 }
 
 .btn {
@@ -154,9 +163,9 @@ h2 {
   }
 
   .main-container {
-    margin: 0; 
+    margin: 0;
   }
-  
+
   .btn {
     font-size: 13px;
   }

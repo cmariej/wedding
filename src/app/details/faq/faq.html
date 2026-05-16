@@ -10,14 +10,21 @@
             <p class="subtitle">Fragen</p>
         </div>
     </div>
-    <div class="faq">
-        @for (item of questions; track item.question;) {
-        <div class="question">
-            <h2>{{ item.question }}</h2>
-            <p>{{ item.answer }}</p>
-        </div>
-        }
+    <div *ngIf="loading" class="spinner-container">
+        <mat-spinner></mat-spinner>
     </div>
+
+    <div *ngIf="!loading">
+   
+        <div class="faq">
+            @for (item of questions; track item.question;) {
+            <div class="question">
+                <h2>{{ item.question }}</h2>
+                <p>{{ item.answer }}</p>
+            </div>
+            }
+        </div>
+     </div>
     <hr class="dotted-divider">
     <h2 style="margin-bottom: 2rem; padding: 0 2rem;">Deine Frage ist nicht dabei? Dann schreib uns!</h2>
     <div class="form-container">
