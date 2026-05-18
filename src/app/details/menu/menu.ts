@@ -25,7 +25,6 @@ interface MenuData {
   styleUrl: './menu.scss',
 })
 export class Menu implements OnInit {
-  private url = 'https://cmariej.github.io/wedding-data/menu.yaml?t=' + Date.now();
 
   afternoon: MenuItem[] = [];
   dinner: MenuItem[] = [];
@@ -43,7 +42,7 @@ export class Menu implements OnInit {
     this.loading = true;
 
     this.http
-      .get<any[]>(`${environment.apiUrl}/projects/Hochzeit/menue`)
+      .get<any[]>(`${environment.apiUrl}/projects/wedding/menu`)
       .subscribe({
         next: data => {
 

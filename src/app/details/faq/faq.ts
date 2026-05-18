@@ -49,27 +49,27 @@ export class Faq {
  loadFaq() {
   this.loading = true;
 
-  setTimeout(() => {
-    this.http
-      .get<QuestionItem[]>(
-        `${environment.apiUrl}/projects/Hochzeit/faq`
-      )
-      .subscribe({
-        next: data => {
+  this.http
+    .get<QuestionItem[]>(
+      `${environment.apiUrl}/projects/wedding/faq`
+    )
+    .subscribe({
+      next: data => {
 
-          this.questions = data;
+        this.questions = data;
 
-          this.loading = false;
-        },
+        this.loading = false;
 
-        error: err => {
-          console.error(err);
+        this.cdr.detectChanges();
+      },
 
-          this.loading = false;
-        }
-      });
-  }, 500);
-}
+      error: err => {
+        console.error(err);
+        this.loading = false;
+      }
+    });
+  };
+
 
   onSubmit() {
     this.formSubmitted = true;
