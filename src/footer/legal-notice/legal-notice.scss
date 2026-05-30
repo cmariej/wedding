@@ -1,0 +1,43 @@
+@use 'variables' as *; 
+
+.title {
+    padding-top: 3rem;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+}
+
+.private-policy {
+    margin: 2rem 10rem 0 10rem;
+
+    * {
+        text-transform: none;
+        text-align: start;
+    }
+
+    .legal-title {
+        font-size: 1.6rem;
+        color: $color-dark-green;
+
+        @media (max-width: $size-tablet) {
+            font-size: 1.3rem;
+        }
+    }
+
+    .legal-section {
+        margin-bottom: 3.5rem;
+    }
+}
+
+@media (max-width: 1650px) {
+    .private-policy {
+        margin: 1.5rem 4rem 0 4rem;
+    }
+}
+
+@media (max-width: $size-mobile) {
+    .private-policy {
+        margin: 1.5rem 3rem 0 3rem;
+    }
+}

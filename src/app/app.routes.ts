@@ -8,6 +8,7 @@ import { Rsvp } from './rsvp/rsvp';
 import { PrivatePolicy } from '../footer/private-policy/private-policy';
 import { Menu } from './details/menu/menu';
 import { Faq } from './details/faq/faq';
+import { LegalNotice } from '../footer/legal-notice/legal-notice';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'general', pathMatch: 'full' }, // ← das hier
@@ -20,4 +21,5 @@ export const routes: Routes = [
     { path: 'details/faq', component: Faq },
     { path: 'rsvp', component: Rsvp },
     { path: 'private-policy', component: PrivatePolicy },
+    { path: 'legal-notice', component: LegalNotice },
 ];

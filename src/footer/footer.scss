@@ -1,8 +1,8 @@
-@use 'variables' as *; 
+@use 'variables' as *;
 
 :host {
-    display: block;
-    background: $color-light-green;
+  display: block;
+  background: $color-light-green;
 }
 
 footer {
@@ -15,24 +15,48 @@ footer {
   font-size: $font-size-footer;
 
   p {
+    margin: 0;
     text-transform: capitalize;
-  } 
+  }
 
-  p, a {
+  p,
+  a {
     font-size: $font-size-footer;
-  } 
+  }
 }
 
-footer .right {
+.center {
+  text-align: center;
+}
+
+.right {
   position: absolute;
   right: 2rem;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Mobile */
 @media (max-width: $size-mobile) {
   footer {
-    .center {
-    position: absolute;
-    left: 2rem;
-    }
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .center,
+  .right {
+    position: static;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
   }
 }
